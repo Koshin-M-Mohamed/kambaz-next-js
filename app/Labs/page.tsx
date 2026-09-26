@@ -13,7 +13,10 @@ import Link from "next/link";
 
 export default function Labs() {
   return (
+  
     <div id="wd-labs">
+        <h2>Koshin Mohamed - CS 5610-09 Web Development </h2>
+      <a href="https://github.com/Koshin-M-Mohamed/kambaz-next-js"id="wd-github"> GitHub Repository</a>
       <h1>Labs</h1>
       <ul>
         <li>
