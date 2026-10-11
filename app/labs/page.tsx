@@ -1,14 +1,3 @@
-// import Lab1 from "./Lab1/page";
-
-// export default function Labs() {
-//   return (
-//     <div id="wd-labs">
-//       <h1>Labs</h1>
-//       <Lab1 />
-//     </div>
-//   );
-// }
-
 import Link from "next/link";
 
 export default function labs() {
