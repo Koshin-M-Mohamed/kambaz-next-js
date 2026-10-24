@@ -4,6 +4,7 @@ export default function Classes() {
   const color = "blue";
   const dangerous = true;
   const myOwnGreen = true;
+  const shade = "green";
   return (
     <div id="wd-classes">
       <h2>Classes</h2>
@@ -31,6 +32,12 @@ export default function Classes() {
         } wd-fg-black wd-padding-10px`}
       >
         My Own Green background
+      </div>
+      <div
+        id="wd-ai-class-box"
+        className={`wd-bg-${shade} wd-fg-black wd-padding-10px`}
+      >
+        Dynamic Green background
       </div>
       <hr />
     </div>

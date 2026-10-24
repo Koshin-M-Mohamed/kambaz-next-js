@@ -9,8 +9,8 @@ export default function PathParameters() {
       <Link href="/labs/lab3/add/3/4">3 + 4</Link> <br />
       <Link href="/labs/lab3/add/12/30">12 + 30</Link> <br />
       <Link href="/labs/lab3/add/7/8">7 + 8</Link> <br />
-      <Link href="/labs/lab3/add/23/77">23 + 77</Link> <br />
-      <Link href="/labs/lab3/add/5/6">5 + 6</Link>
+      <Link id="wd-my-own-path-parameter" href="/labs/lab3/add/23/77">23 + 77</Link> <br />
+      <Link id="wd-ai-path-parameter" href="/labs/lab3/add/5/6">5 + 6</Link>
     </div>
   );
 }
