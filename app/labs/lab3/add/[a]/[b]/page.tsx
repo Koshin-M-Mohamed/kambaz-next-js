@@ -1,13 +1,12 @@
-import Link from "next/link";
+"use client";
 
-export default function PathParameters() {
+import { useParams } from "next/navigation";
+
+export default function Add() {
+  const { a, b } = useParams();
   return (
-    <div id="wd-path-parameters">
-      <h2>Path Parameters</h2>
-
-      <Link href="/labs/lab3/add/1/2">1 + 2</Link> <br />
-      <Link href="/labs/lab3/add/3/4">3 + 4</Link> <br />
-      <Link href="/labs/lab3/add/23/77">23 + 77</Link>
+    <div>
+      {a} + {b} = {parseInt(a as string) + parseInt(b as string)}
     </div>
   );
 }

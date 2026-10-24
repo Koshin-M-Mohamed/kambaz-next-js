@@ -76,6 +76,7 @@ export default function Lab3() {
       <ClientComponentDemo />
       <ServerComponentDemo />
       <Add a={3} b={4} />
+      <Add a={10} b={20} />
       <Add a={10} b={5} />
       <h4>Square of 4</h4>
       <Square>4</Square>

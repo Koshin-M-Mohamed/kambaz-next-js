@@ -3,6 +3,7 @@ import "./Classes.css";
 export default function Classes() {
   const color = "blue";
   const dangerous = true;
+  const myOwnGreen = true;
   return (
     <div id="wd-classes">
       <h2>Classes</h2>
@@ -22,6 +23,14 @@ export default function Classes() {
         className={`${dangerous ? "wd-bg-red" : "wd-bg-green"} wd-fg-black wd-padding-10px`}
       >
         Dangerous background
+      </div>
+      <div
+        id="wd-my-own-class-box"
+        className={`${
+          myOwnGreen ? "wd-bg-green" : "wd-bg-yellow"
+        } wd-fg-black wd-padding-10px`}
+      >
+        My Own Green background
       </div>
       <hr />
     </div>
