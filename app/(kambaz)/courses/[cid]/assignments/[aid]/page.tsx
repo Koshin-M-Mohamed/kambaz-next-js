@@ -1,11 +1,13 @@
 import Link from "next/link";
+import * as db from "../../../../database";
 
 export default async function AssignmentEditor({
   params,
 }: {
-  params: Promise<{ cid: string }>;
+  params: Promise<{ cid: string; aid: string }>;
 }) {
-  const { cid } = await params;
+  const { cid, aid } = await params;
+  const assignment = db.assignments.find((a) => a._id === aid);
 
   return (
     <div id="wd-assignments-editor" className="mx-auto max-w-3xl">
@@ -16,11 +18,13 @@ export default async function AssignmentEditor({
         >
           Assignment Name
         </label>
+
         <input
           id="wd-name"
-          defaultValue="A1 - ENV + HTML"
+          defaultValue={assignment?.title ?? ""}
           className="w-full rounded border border-neutral-300 px-3 py-2"
         />
+        <p className="mt-1 text-sm text-neutral-600">Assignment id: {aid}</p>
       </div>
 
       <div className="mb-5">
@@ -30,10 +34,11 @@ export default async function AssignmentEditor({
         >
           Description
         </label>
+
         <textarea
           id="wd-description"
           className="min-h-[160px] w-full rounded border border-neutral-300 px-3 py-2"
-          defaultValue="The assignment is available online Submit a link to the landing page of"
+          defaultValue={assignment?.description ?? ""}
         />
       </div>
 
@@ -44,9 +49,10 @@ export default async function AssignmentEditor({
         >
           Points
         </label>
+
         <input
           id="wd-points"
-          defaultValue={100}
+          defaultValue={assignment?.points ?? 100}
           className="w-full rounded border border-neutral-300 px-3 py-2"
         />
       </div>
@@ -58,6 +64,7 @@ export default async function AssignmentEditor({
         >
           Assignment Group
         </label>
+
         <select
           id="wd-group"
           className="w-full rounded border border-neutral-300 bg-white px-3 py-2"
@@ -76,6 +83,7 @@ export default async function AssignmentEditor({
         >
           Display Grade as
         </label>
+
         <select
           id="wd-display-grade-as"
           className="w-full rounded border border-neutral-300 bg-white px-3 py-2"
@@ -92,6 +100,7 @@ export default async function AssignmentEditor({
         >
           Submission Type
         </label>
+
         <select
           id="wd-submission-type"
           className="w-full rounded border border-neutral-300 bg-white px-3 py-2"
@@ -137,6 +146,7 @@ export default async function AssignmentEditor({
         >
           Assign to
         </label>
+
         <input
           id="wd-assign-to"
           className="w-full rounded border border-neutral-300 px-3 py-2"
@@ -150,9 +160,11 @@ export default async function AssignmentEditor({
         >
           Due
         </label>
+
         <input
           type="date"
           id="wd-due-date"
+          defaultValue={assignment?.due}
           className="w-full rounded border border-neutral-300 px-3 py-2"
         />
       </div>
@@ -164,9 +176,11 @@ export default async function AssignmentEditor({
         >
           Available from
         </label>
+
         <input
           type="date"
           id="wd-available-from"
+          defaultValue={assignment?.available}
           className="w-full rounded border border-neutral-300 px-3 py-2"
         />
       </div>
@@ -178,6 +192,7 @@ export default async function AssignmentEditor({
         >
           Until
         </label>
+
         <input
           type="date"
           id="wd-available-until"
@@ -192,6 +207,7 @@ export default async function AssignmentEditor({
         >
           Sample notes
         </label>
+
         <textarea
           id="wd-ai-editor-notes"
           className="min-h-[160px] w-full rounded border border-neutral-300 px-3 py-2"
