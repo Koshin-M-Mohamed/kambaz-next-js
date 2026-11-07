@@ -19,7 +19,6 @@ export default function UrlEncoding() {
 
     params.set("a", a);
     params.set("b", b);
-    params.set("c", sampleC);
 
     router.push(
       `${baseUrl}/query-params?${params.toString()}`
@@ -29,10 +28,9 @@ export default function UrlEncoding() {
   const goToPathVersion = () => {
     const safeA = encodeURIComponent(a);
     const safeB = encodeURIComponent(b);
-    const safeC = encodeURIComponent(c);
 
     router.push(
-      `${baseUrl}/path-params/${safeA}/${safeB}/${safeC}`
+      `${baseUrl}/path-params/${safeA}/${safeB}`
     );
   };
 
@@ -41,8 +39,8 @@ export default function UrlEncoding() {
       <h2>Addition Calculator</h2>
 
       <p>
-        Enter three numbers and navigate using either buttons
-        (programmatic) or links (declarative):
+        Add two numbers using the base controls, or use the separate
+        three-number and sample query controls below.
       </p>
 
       <input
@@ -85,7 +83,7 @@ export default function UrlEncoding() {
         className="mb-2 w-full rounded bg-green-600 px-3 py-1.5 text-sm font-medium text-white"
         id="wd-url-query-programmatic"
       >
-        {a} + {b} + {sampleC} → Query Params (programmatic)
+        {a} + {b} → Query Params (programmatic)
       </button>
 
       <button
@@ -94,7 +92,7 @@ export default function UrlEncoding() {
         className="mb-3 w-full rounded bg-green-600 px-3 py-1.5 text-sm font-medium text-white"
         id="wd-url-path-programmatic"
       >
-        {a} + {b} + {c} → Path Params (programmatic)
+        {a} + {b} → Path Params (programmatic)
       </button>
 
       <h4>Declarative navigation (using Link):</h4>
@@ -104,11 +102,11 @@ export default function UrlEncoding() {
           a
         )}&b=${encodeURIComponent(
           b
-        )}&c=${encodeURIComponent(sampleC)}`}
+        )}`}
         className="mb-2 block w-full rounded bg-blue-600 px-3 py-1.5 text-center text-sm font-medium text-white no-underline"
         id="wd-url-query-link"
       >
-        {a} + {b} + {sampleC} → Query Params (Link)
+        {a} + {b} → Query Params (Link)
       </Link>
 
       <Link
@@ -116,11 +114,72 @@ export default function UrlEncoding() {
           a
         )}/${encodeURIComponent(
           b
-        )}/${encodeURIComponent(c)}`}
+        )}`}
         className="mb-2 block w-full rounded bg-blue-600 px-3 py-1.5 text-center text-sm font-medium text-white no-underline"
         id="wd-url-path-link"
       >
+        {a} + {b} → Path Params (Link)
+      </Link>
+
+      <h4>My three-number calculator:</h4>
+
+      <button
+        type="button"
+        onClick={() => router.push(
+          `${baseUrl}/query-params?${new URLSearchParams({ a, b, c }).toString()}`
+        )}
+        className="mb-2 w-full rounded bg-green-600 px-3 py-1.5 text-sm font-medium text-white"
+        id="wd-my-own-url-query-programmatic"
+      >
+        {a} + {b} + {c} → Query Params (programmatic)
+      </button>
+
+      <button
+        type="button"
+        onClick={() => router.push(
+          `${baseUrl}/path-params/${encodeURIComponent(a)}/${encodeURIComponent(b)}/${encodeURIComponent(c)}`
+        )}
+        className="mb-3 w-full rounded bg-green-600 px-3 py-1.5 text-sm font-medium text-white"
+        id="wd-my-own-url-path-programmatic"
+      >
+        {a} + {b} + {c} → Path Params (programmatic)
+      </button>
+
+      <Link
+        href={`${baseUrl}/query-params?a=${encodeURIComponent(a)}&b=${encodeURIComponent(b)}&c=${encodeURIComponent(c)}`}
+        className="mb-2 block w-full rounded bg-blue-600 px-3 py-1.5 text-center text-sm font-medium text-white no-underline"
+        id="wd-my-own-url-query-link"
+      >
+        {a} + {b} + {c} → Query Params (Link)
+      </Link>
+
+      <Link
+        href={`${baseUrl}/path-params/${encodeURIComponent(a)}/${encodeURIComponent(b)}/${encodeURIComponent(c)}`}
+        className="mb-2 block w-full rounded bg-blue-600 px-3 py-1.5 text-center text-sm font-medium text-white no-underline"
+        id="wd-my-own-url-path-link"
+      >
         {a} + {b} + {c} → Path Params (Link)
+      </Link>
+
+      <h4>Sample third-number query:</h4>
+
+      <button
+        type="button"
+        onClick={() => router.push(
+          `${baseUrl}/query-params?${new URLSearchParams({ a, b, c: sampleC }).toString()}`
+        )}
+        className="mb-2 w-full rounded bg-green-600 px-3 py-1.5 text-sm font-medium text-white"
+        id="wd-ai-url-query-programmatic"
+      >
+        {a} + {b} + {sampleC} → Sample Query (programmatic)
+      </button>
+
+      <Link
+        href={`${baseUrl}/query-params?a=${encodeURIComponent(a)}&b=${encodeURIComponent(b)}&c=${encodeURIComponent(sampleC)}`}
+        className="mb-2 block w-full rounded bg-blue-600 px-3 py-1.5 text-center text-sm font-medium text-white no-underline"
+        id="wd-ai-url-query-link"
+      >
+        {a} + {b} + {sampleC} → Sample Query (Link)
       </Link>
 
       <hr />
