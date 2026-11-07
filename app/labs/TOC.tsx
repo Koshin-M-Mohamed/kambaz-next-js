@@ -29,6 +29,12 @@ const LINKS = [
     match: (p: string) => p.includes("/lab3"),
   },
   {
+  href: "/labs/lab4",
+  id: "wd-lab4-link",
+  label: "Lab 4",
+  match: (p: string) => p.includes("/lab4"),
+},
+  {
     href: "/",
     id: "wd-kambaz-link",
     label: "Kambaz",
