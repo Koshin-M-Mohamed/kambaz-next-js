@@ -30,10 +30,10 @@ export default function CoursesLayout({
     : false;
 
   useEffect(() => {
-    if (!isEnrolled) router.push("/dashboard");
+    if (currentUser && !isEnrolled) router.push("/dashboard");
   }, [currentUser, isEnrolled, router]);
 
-  if (!isEnrolled) return null;
+  if (currentUser && !isEnrolled) return null;
 
   return (
     <div id="wd-courses">
